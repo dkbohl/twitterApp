@@ -53,8 +53,8 @@ def index():
     G = nx.from_pandas_edgelist(edges, 'source', 'target')
 
     # Filter graph
-    G = fn.filter_for_k_core(G, k_cores=k_cores)
     G = fn.filter_for_largest_components(G, num_comp=lccs)
+    G = fn.filter_for_k_core(G, k_cores=k_cores)
 
     # Communities and centralities
     partition = community.best_partition(G)
